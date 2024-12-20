@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-Note: The image URLs provided in the test data are from example.com, which does not host the actual images. As a fallback, a placeholder image is used to maintain the UI.
+# Frontend for Hotel SPA Test
+
+This is a [Next.js](https://nextjs.org) project, bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). 
+
+I decided to complete both the frontend and backend tests, even though the instructions required only one. The frontend and backend are implemented in separate repositories and are connected to work seamlessly together. To ensure flexibility during testing, I implemented a failsafe mechanism in the frontend that uses dummy data if the backend is not running. This allows the frontend to function independently without requiring the backend to be active.
+
+**Note:** The image URLs provided in the test data point to `example.com`, which does not host the actual images. As a fallback, placeholder images are used to maintain the UI.
+
+## Features
+
+- Displays a list of hotels with detailed information.
+- Failsafe mechanism to load dummy data when the backend is unavailable.
+- Individual hotel detail pages with styled layouts.
+- Fully responsive design using modern CSS techniques.
+
 ## Getting Started
 
-First, run the development server:
+To set up and run the project, follow these steps:
+
+### Install Dependencies
+
+Run the following command in the project root:
 
 ```bash
-npm run dev
+npm install
 # or
-yarn dev
+yarn install
 # or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build the Project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build the project for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
 
-## Learn More
+### Start the Project
 
-To learn more about Next.js, take a look at the following resources:
+Start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+# or
+yarn start
+# or
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Access the Application
 
-## Deploy on Vercel
+Open [http://localhost:3000] in your browser to view the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **`app/`**: Contains Next.js pages.
+- **`src/data/`**: Includes `hotels.json` for dummy data used as a failsafe.
+- **`styles/`**: Contains CSS files for styling.
+
+## Failsafe Details
+
+If the backend is unavailable, the frontend automatically falls back to `src/data/hotels.json` to ensure the application remains functional.
+
+## Testing Notes
+
+- **Backend:** If you want to test the full integration, ensure the backend is running.
+- **Frontend:** The frontend will function with or without the backend, thanks to the failsafe.
+
+
