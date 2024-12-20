@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,8 +18,7 @@ body {
     margin: 5px 0;
     line-height: 1.5;
   }
-  
-  /* Container for Hotel Details */
+
   .hotel-detail-container {
     max-width: 800px;
     margin: 20px auto;
@@ -50,7 +49,7 @@ body {
     margin-bottom: 5px;
   }
   
-  /* Back Button */
+
   .back-button {
     display: inline-block;
     margin: 20px 0;
@@ -73,4 +72,41 @@ body {
   .back-button:focus {
     outline: none;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+
+.hotel-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px; 
+    margin: 20px 0; 
+  }
+  
+  .detail-pill {
+    padding: 10px 15px; 
+    background-color: #f0f0f0; 
+    border-radius: 25px;
+    text-align: center; 
+    font-size: 0.9rem; 
+    color: #333; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .detail-pill strong {
+    font-weight: bold; 
+    color: #444; 
+  }
+  
+  .hotel-rooms {
+    margin-top: 20px; 
+  }
+  
+  .hotel-rooms ul {
+    list-style: none; 
+    padding: 0; 
+  }
+  
+  .hotel-rooms ul li {
+    margin-bottom: 5px; 
+    font-size: 0.9rem; 
+    color: #333; 
   }

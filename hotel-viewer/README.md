@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+Note: The image URLs provided in the test data are from example.com, which does not host the actual images. As a fallback, a placeholder image is used to maintain the UI.
 ## Getting Started
 
 First, run the development server:
