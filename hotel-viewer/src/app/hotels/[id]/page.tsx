@@ -1,8 +1,9 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
 import { getHotelById } from '@/helpers/api';
 import { Hotel } from '@/types/types';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation'; // Import useRouter
+import '@/styles/hotels[id].css';
 
 export default function HotelDetail() {
   const [hotel, setHotel] = useState<Hotel | null>(null);
@@ -10,6 +11,7 @@ export default function HotelDetail() {
   const [error, setError] = useState<string | null>(null);
 
   const { id } = useParams(); // Extract hotel ID from the URL
+  const router = useRouter(); // Initialize router for navigation
 
   useEffect(() => {
     const fetchHotel = async () => {
@@ -27,16 +29,19 @@ export default function HotelDetail() {
     fetchHotel();
   }, [id]);
 
-  if (loading) return <p>Loading hotel details...</p>;
-  if (error) return <p>{error}</p>;
-  if (!hotel) return <p>Hotel not found.</p>;
+  if (loading) return <p className="message">Loading hotel details...</p>;
+  if (error) return <p className="message">{error}</p>;
+  if (!hotel) return <p className="message">Hotel not found.</p>;
 
   return (
-    <div>
+    <div className="hotel-detail-container">
+      <button className="back-button" onClick={() => router.push('/hotels')}>
+        Back to Hotels List
+      </button>
       <h1>{hotel.name}</h1>
       <p>Location: {hotel.location}</p>
       <p>Rating: {hotel.rating}</p>
-      <img src={hotel.imageUrl} alt={hotel.name} width={200} />
+      <img src={hotel.imageUrl} alt={hotel.name} />
       <p>Dates of Travel: {hotel.datesOfTravel.join(', ')}</p>
       <p>Board Basis: {hotel.boardBasis}</p>
       <p>Rooms:</p>

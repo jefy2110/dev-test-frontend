@@ -1,7 +1,10 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link'; 
 import { getHotels } from '@/helpers/api';
 import { Hotel } from '@/types/types';
+import '@/styles/hotels.css';
+
 export default function HotelsList() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -22,33 +25,39 @@ export default function HotelsList() {
     fetchHotels();
   }, []);
 
-  if (loading) return <p>Loading hotels...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className="message">Loading hotels...</p>;
+  if (error) return <p className="message">{error}</p>;
 
   return (
-    <div>
+    <div className="hotels-container">
       <h1>Hotels List</h1>
-      <ul>
+      <ul className="hotels-list">
         {hotels.map((hotel) => (
-          <li key={hotel.id}>
-            <h2>{hotel.name}</h2>
-            <p>Location: {hotel.location}</p>
-            <p>Rating: {hotel.rating}</p>
-            <img src={hotel.imageUrl} alt={hotel.name} width={200} />
-            <p>Dates of Travel: {hotel.datesOfTravel.join(', ')}</p>
-            <p>Board Basis: {hotel.boardBasis}</p>
-            <p>Rooms:</p>
-            <ul>
-              {hotel.rooms && hotel.rooms.length > 0 ? (
-                hotel.rooms.map((room, index) => (
-                  <li key={index}>
-                    {room.amount} x {room.roomType}
-                  </li>
-                ))
-              ) : (
-                <li>No rooms available</li>
-              )}
-            </ul>
+          <li key={hotel.id} className="hotel-card">
+            <Link href={`/hotels/${hotel.id}`} passHref legacyBehavior >
+              <div style={{ cursor: 'pointer' }}>
+                <img src={hotel.imageUrl} alt={hotel.name} />
+                <div className="hotel-card-content">
+                  <h2>{hotel.name}</h2>
+                  <p>Location: {hotel.location}</p>
+                  <p>Rating: {hotel.rating}</p>
+                  <p>Dates of Travel: {hotel.datesOfTravel.join(', ')}</p>
+                  <p>Board Basis: {hotel.boardBasis}</p>
+                  <p>Rooms:</p>
+                  <ul className="rooms-list">
+                    {hotel.rooms && hotel.rooms.length > 0 ? (
+                      hotel.rooms.map((room, index) => (
+                        <li key={index}>
+                          {room.amount} x {room.roomType}
+                        </li>
+                      ))
+                    ) : (
+                      <li>No rooms available</li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>
