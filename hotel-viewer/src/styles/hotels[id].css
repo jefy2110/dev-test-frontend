@@ -19,37 +19,6 @@ body {
     line-height: 1.5;
   }
 
-  .hotel-detail-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .hotel-detail-container img {
-    display: block;
-    margin: 20px auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .hotel-detail-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-  }
-  
-  .hotel-detail-container ul li {
-    font-size: 0.9rem;
-    color: #444;
-    margin-bottom: 5px;
-  }
-  
-
   .back-button {
     display: inline-block;
     margin: 20px 0;
@@ -74,39 +43,3 @@ body {
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
   }
 
-.hotel-details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 15px; 
-    margin: 20px 0; 
-  }
-  
-  .detail-pill {
-    padding: 10px 15px; 
-    background-color: #f0f0f0; 
-    border-radius: 25px;
-    text-align: center; 
-    font-size: 0.9rem; 
-    color: #333; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .detail-pill strong {
-    font-weight: bold; 
-    color: #444; 
-  }
-  
-  .hotel-rooms {
-    margin-top: 20px; 
-  }
-  
-  .hotel-rooms ul {
-    list-style: none; 
-    padding: 0; 
-  }
-  
-  .hotel-rooms ul li {
-    margin-bottom: 5px; 
-    font-size: 0.9rem; 
-    color: #333; 
-  }
