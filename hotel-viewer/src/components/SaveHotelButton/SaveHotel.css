@@ -3,7 +3,8 @@
     background: none;
     cursor: pointer;
     padding: 0;
-    
+    margin-left: auto;
+    margin-right: 15px;
   }
   
   .like-button:hover {
