@@ -27,7 +27,10 @@ export default function HotelDetail() {
           setHotel(fallbackHotel); 
           setError('Unable to connect to the backend. Loaded local data instead.');
         } else {
-          setError('Hotel not found.');
+          setError('Hotel not found. Redirecting... ');
+          setTimeout(() => {
+            router.push('/hotels');
+          }, 2000);
         }
       } finally {
         setLoading(false);
