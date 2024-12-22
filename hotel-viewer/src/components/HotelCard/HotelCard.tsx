@@ -10,12 +10,17 @@ interface HotelCardProps {
   variant?: 'list' | 'detail';
 }
 
-const getRatingDescription = (rating: number) => {
-  if (rating >= 4.5) return 'Excellent';
-  if (rating >= 4) return 'Great';
-  if (rating >= 3) return 'Good';
-  if (rating >= 2) return 'Fair';
-  return 'Poor';
+const ratingMap = [
+  { min: 4.6, description: 'Excellent', color: '#4c75af' },  
+  { min: 4, description: 'Great', color: '#4CAF50' },        
+  { min: 3, description: 'Good', color: '#FF9800' },        
+  { min: 2, description: 'Fair', color: '#F44336' },                 
+];
+
+
+const getRatingDetails = (rating: number) => {
+  const match = ratingMap.find((item) => rating >= item.min);
+  return match ? match : { description: 'Unknown', color: '#9E9E9E' };  // Gray fallback
 };
 
 export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
@@ -59,7 +64,7 @@ export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
             {hotel.location}
           </a>
 
-          <p className='hotel-card-dateOfTravel'>Visit from <br />{hotel.datesOfTravel.join(' to ')}</p>
+          <p className='hotel-card-dateOfTravel'>Available from <br />{hotel.datesOfTravel.join(' to ')}</p>
           <p className="hotel-card-board-basis">{hotel.boardBasis}</p>
 
           <ul className="rooms-list">
@@ -76,7 +81,17 @@ export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
         </div>
 
         <div className="hotel-card-extraContent">
-          <p>{getRatingDescription(hotel.rating)} {hotel.rating}</p>  
+          {(() => {
+            const { description, color } = getRatingDetails(hotel.rating);
+            return (
+              <p
+                style={{ backgroundColor: color }}
+                className="hotel-card-numberRating"
+              >
+                {description} {hotel.rating}
+              </p>
+            );
+          })()}
           <HeartButton onToggle={handleHeartToggle} />
         </div>
       </div>
