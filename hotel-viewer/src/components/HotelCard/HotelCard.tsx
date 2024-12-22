@@ -20,7 +20,7 @@ const ratingMap = [
 
 const getRatingDetails = (rating: number) => {
   const match = ratingMap.find((item) => rating >= item.min);
-  return match ? match : { description: 'Unknown', color: '#9E9E9E' };  // Gray fallback
+  return match ? match : { description: 'Unknown', color: '#9E9E9E' }; 
 };
 
 export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
