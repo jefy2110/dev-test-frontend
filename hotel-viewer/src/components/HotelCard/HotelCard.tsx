@@ -1,14 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
 import { Hotel } from '@/types/types';
-import '@/styles/hotelCard.css';
-import { renderStars } from './StarIcon';  // Import renderStars
-import HeartButton from './SaveHotel';
+import './hotelCard.css';
+import { renderStars } from '../StarIcon/StarIcon';  
+import HeartButton from '../SaveHotelButton/SaveHotel';
 
 interface HotelCardProps {
   hotel: Hotel;
   variant?: 'list' | 'detail';
 }
+
+const getRatingDescription = (rating: number) => {
+  if (rating >= 4.5) return 'Excellent';
+  if (rating >= 4) return 'Great';
+  if (rating >= 3) return 'Good';
+  if (rating >= 2) return 'Fair';
+  return 'Poor';
+};
 
 export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -36,12 +44,13 @@ export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
           />
         </div>
         <div className="hotel-card-content">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', columnGap:'20px' }}>
             <h2>{hotel.name}</h2>
             <div>{renderStars(hotel.rating)}</div>  
           </div>
 
           <a
+            className='hotel-card-location'
             href={googleMapsLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -50,7 +59,7 @@ export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
             {hotel.location}
           </a>
 
-          <p>Dates of Travel: {hotel.datesOfTravel.join(', ')}</p>
+          <p className='hotel-card-dateOfTravel'>Visit from <br />{hotel.datesOfTravel.join(' to ')}</p>
           <p className="hotel-card-board-basis">{hotel.boardBasis}</p>
 
           <ul className="rooms-list">
@@ -66,7 +75,8 @@ export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
           </ul>
         </div>
 
-        <div className="hotel-card-extra">
+        <div className="hotel-card-extraContent">
+          <p>{getRatingDescription(hotel.rating)} {hotel.rating}</p>  
           <HeartButton onToggle={handleHeartToggle} />
         </div>
       </div>

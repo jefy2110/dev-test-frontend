@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '@/styles/SaveHotel.css';
+import './SaveHotel.css';
 
 interface HeartButtonProps {
   initialLiked?: boolean;
@@ -23,8 +23,8 @@ export default function HeartButton({ initialLiked = false, onToggle }: HeartBut
       {liked ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="44"
+          height="44"
           fill="red"
           viewBox="0 0 24 24"
         >
@@ -33,8 +33,8 @@ export default function HeartButton({ initialLiked = false, onToggle }: HeartBut
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          width="44"
+          height="44"
           fill="none"
           stroke="darkgrey"
           viewBox="0 0 24 24"

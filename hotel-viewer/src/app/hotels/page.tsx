@@ -4,7 +4,7 @@ import { getHotels } from '@/helpers/api';
 import { Hotel } from '@/types/types';
 import '@/styles/hotels.css';
 import fallbackHotels from '@/data/hotels.json';
-import HotelCard from '@/components/HotelCard'; 
+import HotelCard from '@/components/HotelCard/HotelCard'; 
 
 export default function HotelsList() {
   const [hotels, setHotels] = useState<Hotel[]>([]);

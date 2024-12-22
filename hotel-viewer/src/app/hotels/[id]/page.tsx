@@ -5,7 +5,7 @@ import { Hotel } from '@/types/types';
 import { useParams, useRouter } from 'next/navigation';
 import '@/styles/hotels[id].css';
 import fallbackHotels from '@/data/hotels.json';
-import HotelCard from '@/components/HotelCard'; 
+import HotelCard from '@/components/HotelCard/HotelCard'; 
 
 export default function HotelDetail() {
   const [hotel, setHotel] = useState<Hotel | null>(null);
