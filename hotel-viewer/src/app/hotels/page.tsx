@@ -6,6 +6,8 @@ import '@/styles/hotels.css';
 import fallbackHotels from '@/data/hotels.json';
 import HotelCard from '@/components/HotelCard/HotelCard'; 
 
+
+// Page for rendering list of hotels
 export default function HotelsList() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

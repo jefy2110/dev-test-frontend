@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Hotel } from '@/types/types';
 
+// retrieves list of hotels from backend
 export async function getHotels(): Promise<Hotel[]> {
   try {
     const response = await axios.get(`http://localhost:5054/api/hotels/`); 
@@ -13,7 +14,7 @@ export async function getHotels(): Promise<Hotel[]> {
     }
   }
 }
-
+// retrieves details of a specific hotel by id from backend
 export async function getHotelById(id: string): Promise<Hotel> {
   try {
     const response = await axios.get(`http://localhost:5054/api/hotels/${id}`);

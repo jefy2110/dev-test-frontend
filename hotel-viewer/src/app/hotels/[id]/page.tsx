@@ -7,6 +7,8 @@ import '@/styles/hotels[id].css';
 import fallbackHotels from '@/data/hotels.json';
 import HotelCard from '@/components/HotelCard/HotelCard'; 
 
+
+// Page for rendering specific hotel information
 export default function HotelDetail() {
   const [hotel, setHotel] = useState<Hotel | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

@@ -10,9 +10,9 @@ interface HotelCardProps {
   variant?: 'list' | 'detail';
 }
 
-
+//Custom card component for displaying hotel information.
 export default function HotelCard({ hotel, variant = 'list' }: HotelCardProps) {
-  const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  const googleMapsLink = `${process.env.REACT_APP_GOOGLE_MAPS_LINK}${encodeURIComponent(
     hotel.location
   )}`;
 

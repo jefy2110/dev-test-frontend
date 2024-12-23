@@ -3,7 +3,7 @@ import React from 'react';
 interface StarIconProps {
   fillPercentage?: number;
 }
-
+// component for displaying amount of stars a hotel has based on the rating.
 export const StarIcon = ({ fillPercentage = 100 }: StarIconProps) => (
   <svg
     width="24"

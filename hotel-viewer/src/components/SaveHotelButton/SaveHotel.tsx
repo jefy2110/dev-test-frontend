@@ -5,7 +5,7 @@ interface HeartButtonProps {
   initialLiked?: boolean;
   onToggle?: (liked: boolean) => void;
 }
-
+// button component with no functionality currently but is meant to simulate saving a hotel to favourite or bookmarked list for later viewing.
 export default function HeartButton({ initialLiked = false, onToggle }: HeartButtonProps) {
   const [liked, setLiked] = useState(initialLiked);
 

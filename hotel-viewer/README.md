@@ -12,6 +12,8 @@ The "datesOfTravel" value in the hotel objects purpose was abit unclear. As usua
 
 Contexts were not used as I saw no need. All state variables were self contained in their respective files.
 
+I recognise the UI does not scale great for small window sizes and mobile view. With more time this would be implemented.
+
 ## Features
 
 - Displays a list of hotels with detailed information.
