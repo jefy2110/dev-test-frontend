@@ -24,7 +24,16 @@ Contexts were not used as I saw no need. All state variables were self contained
 
 To set up and run the project, follow these steps:
 
-### Install Dependencies
+### 1.  Clone the Repository
+
+Clone this repository to your local machine:
+
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
+
+### 2. Install Dependencies
 
 Run the following command in the project root:
 
@@ -32,14 +41,14 @@ Run the following command in the project root:
 npm install
 ```
 
-### Build the Project
+### 3. Build the Project
 
 Build the project for production:
 
 ```bash
 npm run build
 ```
-### Start the Project
+### 4. Start the Project
 
 Start the production server:
 
@@ -47,7 +56,7 @@ Start the production server:
 npm start
 ```
 
-### Access the Application
+### 5. Access the Application
 
 Open [http://localhost:3000] in your browser to view the application.
 
