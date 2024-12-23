@@ -44,7 +44,7 @@ export default function HotelDetail() {
   if (loading) return <p className="message">Loading hotel details...</p>;
   if (error) console.warn(error);
 
-  if (!hotel) return <p className="message">Hotel not found.</p>;
+  if (!hotel) return <p className="message">Hotel not found. Redirecting...</p>;
 
   return (
     <div>
