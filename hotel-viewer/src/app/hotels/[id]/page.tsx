@@ -47,13 +47,20 @@ export default function HotelDetail() {
   if (!hotel) return <p className="message">Hotel not found.</p>;
 
   return (
-    <div className="hotel-detail-container">
-      <button className="back-button" onClick={() => router.push('/hotels')}>
-        Back to Hotels List
-      </button>
-      <ul className="hotels-list">
-        <HotelCard hotel={hotel} variant="detail" />
-      </ul>
+    <div>
+        <button className="back-button" onClick={() => router.push('/hotels')}>
+          <img
+            src="/back-arrow.svg"
+            alt="Back"
+            className="back-icon"
+          />
+        </button>
+        <div className="hotel-detail-container">
+          <ul className="hotels-list">
+            <HotelCard hotel={hotel} variant="detail" />
+          </ul>
+        </div>
     </div>
+
   );
 }
